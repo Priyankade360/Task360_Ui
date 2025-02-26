@@ -1,5 +1,6 @@
 .chat-container {
     display: flex;
+    /* position: absolute; */
     flex-direction: column;
     height: 100vh;
     background: #ecf0f1;
@@ -56,39 +57,104 @@
   /* Fixed Input Section */
   .chat-input-section {
     display: flex;
-    width: 50%;
-    align-items: center;
-    padding: 10px;
+    flex-direction: column;
+    width: 45.5%;
+    padding: 3px; 
     background: white;
     position: fixed;
     bottom: 0;
+    margin-bottom: 10px;
     /* right: 250px; */
     left: 290px;
-    border-top: 1px solid #ddd;
+    border: 1px solid #ddd;
+    border-radius: 10px;
   }
   
   .chat-input {
     flex: 1;
-    height: 40px;
+    display: flex;
+    flex-direction: column;
+    min-height: 40px; /* Initial height */
+  max-height: 150px;
+    width:90%;
     border: 1px solid #ddd;
+    border: none;
     border-radius: 20px;
     padding: 10px;
     font-size: 14px;
     outline: none;
     resize: none;
+    overflow-y: auto;
   }
+  .chat-input::-webkit-scrollbar {
+    display: none;
+  }
+.submit{
+  display: flex;
+  flex-direction:row;
+  align-items: right;
+  gap: 45%;
+}
   
   .send-button {
-    background: #3498db;
+    display: flex;
+    align-items: center;
+    gap: 8px; 
+    padding: 10px 15px;
     border: none;
-    color: white;
-    padding: 8px 12px;
-    border-radius: 5px;
+    background: transparent;
+    border: none;
+    color: #464b50;
+    font-size: 16px;
     cursor: pointer;
-    margin-left: 10px;
+    border-radius: 5px;
   }
   
-  .send-button:hover {
-    background: #2980b9;
+  .send-icon {
+    width: 17px;  
+    height: 12px;
   }
+  
+  .backarrow{
+    width: 10px;  
+    height: 6px;
+  }
+  
+  .toolbar {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    padding: 2px;
+    gap: 1px; 
+    border-radius: 20px;
+    border: none;
+  }
+  
+  .toolbar-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    
+    /* align-items: center; */
+    /* justify-content: center; */
+  }
+  
+  .toolbar-btn:hover img {
+    opacity: 0.7;
+  }
+  
+  .toolbar-icon {
+    width: 12px;  
+    height: 13px;
+  }
+  
+  .divider {
+    width: 1px;
+    height: 20px;
+    background: #ccc;
+    margin: 0 10px;
+  }
+  
   

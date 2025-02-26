@@ -26,7 +26,7 @@
 }
 
 /* Right Panel - Fixed Right */
-.right-panel {
+/* .right-panel {
   width: 250px;
   background: #f4f4f4;
   padding: 20px;
@@ -36,4 +36,19 @@
   bottom: 0;
   overflow-y: auto;
   z-index: -1;
+} */
+
+.right-panel {
+  height: 100vh;
+  width: 500px;
+  background: #f4f4f4;
+  /* margin-top: 70px; */
+  padding: 20px;
+  position: fixed;
+  border-radius: 4px;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  /* overflow-y: auto;
+  z-index: 1000; */
 }

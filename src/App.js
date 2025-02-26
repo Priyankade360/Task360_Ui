@@ -9,6 +9,7 @@ const App = () => {
     <div className="app-container">
       <Sidebar />
       <div className="main-content">
+
         <ChatBoard />
       </div>
       <RightPanel />
