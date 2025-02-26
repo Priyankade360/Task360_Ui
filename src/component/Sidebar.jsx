@@ -68,10 +68,11 @@ const initialChannels = [
 
 const Sidebar = () => {
     // Toggle states for each section
-  const [isOpen, setIsOpen] = useState(true);
-  const [isMessageOpen, setIsMessageOpen] = useState(true);
+    const [isMessageOpen, setIsMessageOpen] = useState(true);
+    const [isOpen, setIsOpen] = useState(true);
   const [isTeamsOpen, setIsTeamsOpen] = useState(true);
   const [isChannelsOpen, setIsChannelsOpen] = useState(true);
+  
 
   // State variables for dynamic lists
   const [directMessages, setDirectMessages] = useState(initialUsers);
@@ -79,7 +80,8 @@ const Sidebar = () => {
   const [teams, setTeams] = useState(initialTeams);
   const [channels, setChannels] = useState(initialChannels);
 
-  const [selectedChat, setSelectedChat] = useState(null);  // Track selected user 
+  const [selectedChat, setSelectedChat] = useState(null);  // T
+  const [showAll, setShowAll] = useState(false);
   const openChat = (user) => {
     setSelectedChat(user);
   };
@@ -93,7 +95,6 @@ const Sidebar = () => {
 
   // Toggle functions for each section that close the other sections when opening one
   const handleToggleMessage = () => {
-    // If currently closed, open it and close others; otherwise, simply toggle off.
     if (!isMessageOpen) {
       closeOtherSections("messages");
     }
@@ -124,36 +125,28 @@ const Sidebar = () => {
   // Function to load more conversations
   const loadMoreConversations = (e) => {
     e.preventDefault();
-    // Open direct messages and close other sections
+    setShowAll(!showAll);
     closeOtherSections("messages");
-    setIsMessageOpen(true);
-    const moreUsers = [
-      { name: "Abhijeet Das", avatar: avijeet, status: "online", unread: true },
-      { name: "Jayanta Mahato", avatar: jayanta, status: "online", unread: true },
-      { name: "Sucharita Paul", avatar: sucharita, status: "online", unread: false },
-    ];
-    setDirectMessages((prev) => [...prev, ...moreUsers]);
+    if (!showAll) {
+      const moreUsers = [
+        { name: "Rahul Sharma", avatar: avijeet, status: "offline", unread: false },
+        { name: "Priyanka Roy", avatar: sucharita, status: "online", unread: true }
+      ];
+      setDirectMessages([...initialUsers, ...moreUsers]);
+    } else {
+      setDirectMessages(initialUsers);
+    }
   };
 
   // Function to load more projects
   const loadMoreProjects = (e) => {
     e.preventDefault();
-    // Open projects and close other sections
     closeOtherSections("projects");
     setIsOpen(true);
     const moreProjects = [
-      {
-        name: "Microsoft",
-        icon: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
-      },
-      {
-        name: "Google",
-        icon: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
-      },
-      {
-        name: "Amazon",
-        icon: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg",
-      },
+      {name: "Microsoft",icon: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",},
+      {name: "Google",icon: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",},
+      {name: "Amazon",icon: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg",},
     ];
     setProjects((prev) => [...prev, ...moreProjects]);
   };
@@ -230,9 +223,9 @@ const Sidebar = () => {
           </ul>
         )}
         <div className="more-conversation">
-          <a href="#more-conversation" onClick={loadMoreConversations}>
-            More Conversations
-          </a>
+        <a href="#more-conversation" onClick={loadMoreConversations}>
+    {!showAll ? "More Conversations" : "Less Conversations"}
+  </a>
         </div>
       </div>
 
