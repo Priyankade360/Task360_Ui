@@ -1,64 +1,57 @@
-import { useState } from "react";
+
+import React from "react";
 import "./styles/LoginForm.css";
 
-export default function LoginForm() {
-  const [formData, setFormData] = useState({ uname: "", psw: "", remember: false });
 
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: type === "checkbox" ? checked : value,
-    }));
-  };
+import Logo from './Assets/360logo.svg';
+import Frame from './Assets/Frame.png';
+import google from './Assets/google.svg';
+import microsoft from './Assets/microsoft-icon.svg';
+import appstore from './Assets/apple-app-store.svg';
+const LoginForm = ({ onLogin }) => {
+  const [email, setEmail] = React.useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form Data Submitted:", formData);
+    if (email === "de360@businessdomain.com") {
+      onLogin(); 
+    } else {
+      alert("Invalid email. Please enter the correct email.");
+    }
   };
-
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="imgcontainer">
-        <img src="img_avatar2.png" alt="Avatar" className="avatar" />
+    <div className="login-container">
+      
+      <div className="login-left">
+  <img src={ Logo } alt=" " className="login-logo" />
+  <h2>Welcome Back</h2>
+  <p>Welcome back! Please enter your details</p>
+  <form className="login-form" onSubmit={handleSubmit}>
+          <label>Email</label>
+          <input
+            type="email"
+            placeholder="example@businessdomain.com"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+    <button type="submit">Sign In</button>
+    <div className="separator">---- or sign in with ----</div>
+    <div className="social-icons">
+            <img src={google} alt=" " />
+      <img src={microsoft} alt=" " />
+      <img src={appstore} alt=" " />
+    </div>
+  </form>
       </div>
       
-      <div className="container">
-        <label htmlFor="uname"><b>Username</b></label>
-        <input 
-          type="text" 
-          placeholder="Enter Username" 
-          name="uname" 
-          value={formData.uname} 
-          onChange={handleChange} 
-          required 
-        />
 
-        <label htmlFor="psw"><b>Password</b></label>
-        <input 
-          type="password" 
-          placeholder="Enter Password" 
-          name="psw" 
-          value={formData.psw} 
-          onChange={handleChange} 
-          required 
-        />
-
-        <button type="submit">Login</button>
-        <label>
-          <input 
-            type="checkbox" 
-            name="remember" 
-            checked={formData.remember} 
-            onChange={handleChange} 
-          /> Remember me
-        </label>
+      <div className="login-right">
+        <img src={Frame} alt=" " className="login-image" />
       </div>
-      
-      <div className="container" style={{ backgroundColor: "#f1f1f1" }}>
-        <button type="button" className="cancelbtn">Cancel</button>
-        <span className="psw">Forgot <a href="#">password?</a></span>
       </div>
-    </form>
   );
-}
+};
+
+export default LoginForm;
+
