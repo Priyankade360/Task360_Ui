@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import "./styles/Sidebar.css";
 
 
@@ -16,11 +17,12 @@ import chanel from './Assets/Chanel.png';
 import pizzahut from './Assets/PizzaHut.png'
 // teams
 import teams from './Assets/teams.svg';
+import teamsitem from './Assets/teams.svg';
 // channels
 import lock from './Assets/Lock.svg';
 import hash from './Assets/Hash.svg';
 // plusicon
-import plusIcon from './Assets/add.png';
+import plusIcon from './Assets/add.svg';
 // companyLogo
 import companyLogo from './Assets/360tasklogo.svg';
 // profile-avatar
@@ -48,7 +50,7 @@ const initialProjects = [
 
 // Initial teams data
 const initialTeams = [
-  { name: "App-Development", icon: teams },
+  { name: "App-Development", icon: teams},
   { name: "General", icon: teams },
   { name: "Development", icon: teams },
   { name: "Inernational Projects", icon: teams  },
@@ -139,50 +141,86 @@ const Sidebar = () => {
   };
 
   // Function to load more projects
-  const loadMoreProjects = (e) => {
-    e.preventDefault();
-    closeOtherSections("projects");
-    setIsOpen(true);
+  // State to track project visibility
+const [showAllProjects, setShowAllProjects] = useState(false);
+
+const loadMoreProjects = (e) => {
+  e.preventDefault();
+  closeOtherSections("projects");
+
+  setShowAllProjects(!showAllProjects);
+
+  if (!showAllProjects) {
     const moreProjects = [
-      {name: "Microsoft",icon: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",},
-      {name: "Google",icon: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",},
-      {name: "Amazon",icon: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg",},
+      { name: "Microsoft", icon: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" },
+      { name: "Google", icon: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" },
+      { name: "Amazon", icon: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" }
     ];
-    setProjects((prev) => [...prev, ...moreProjects]);
-  };
+    setProjects([...initialProjects, ...moreProjects]);
+  } else {
+    setProjects(initialProjects);
+  }
+};
+
 
   // Function to load more teams
-  const loadMoreTeams = (e) => {
-    e.preventDefault();
-    // Open teams and close other sections
-    closeOtherSections("teams");
-    setIsTeamsOpen(true);
+ // State to track team visibility
+const [showAllTeams, setShowAllTeams] = useState(false);
+
+const loadMoreTeams = (e) => {
+  e.preventDefault();
+  closeOtherSections("teams");
+
+  setShowAllTeams(!showAllTeams);
+
+  if (!showAllTeams) {
     const moreTeams = [
-      { name: "UX-Design", icon: "https://img.icons8.com/ios-filled/50/000000/conference-call.png" },
-      { name: "Marketing", icon: "https://img.icons8.com/ios-filled/50/000000/conference-call.png" },
-      { name: "Sales", icon: "https://img.icons8.com/ios-filled/50/000000/conference-call.png" },
+      { name: "UX-Design", icon: teamsitem },
+      { name: "Marketing", icon: teamsitem },
+      { name: "Sales", icon: teamsitem }
     ];
-    setTeams((prev) => [...prev, ...moreTeams]);
-  };
+    setTeams([...initialTeams, ...moreTeams]);
+  } else {
+    setTeams(initialTeams);
+  }
+};
+
 
   // Function to load more channels
-  const loadMoreChannels = (e) => {
-    e.preventDefault();
-    // Open channels and close other sections
-    closeOtherSections("channels");
-    setIsChannelsOpen(true);
+  // State to track channel visibility
+const [showAllChannels, setShowAllChannels] = useState(false);
+
+const loadMoreChannels = (e) => {
+  e.preventDefault();
+  closeOtherSections("channels");
+
+  setShowAllChannels(!showAllChannels);
+
+  if (!showAllChannels) {
     const moreChannels = [
       { name: "Announcements", locked: false },
       { name: "Random", locked: false },
-      { name: "Tech-Talk", locked: true },
+      { name: "Tech-Talk", locked: true }
     ];
-    setChannels((prev) => [...prev, ...moreChannels]);
-    };
-    
+    setChannels([...initialChannels, ...moreChannels]);
+  } else {
+    setChannels(initialChannels);
+  }
+  };
+  
+
+const handleClick = () => {
+  alert("Button clicked!");
+};
+
+  
+const openNewWindow = () => {
+  window.open("https://in.pinterest.com/modithakathari/doraemon-videos/", "width=600,height=400");
+};
   return (
     <div className="sidebar">
       {/* My Task */}
-      <div className="sidebar-mytask-box">
+      <div className="sidebar-mytask-box" onDoubleClick={openNewWindow} >
        <img src={vectorIcon} alt="" className="mytask-icon" />
         <span className="mytask-text">My Task</span>
       </div>
@@ -201,10 +239,12 @@ const Sidebar = () => {
           </span>
           <span className="direct-message-text">Direct Message</span>
           <div className="direct-message-add-button">
-    <button>
+  <button onClick={handleClick} className="tooltip-button">
     <img src={plusIcon} alt="Add" />
-    </button>
-    </div>
+    {/* <span className="tooltip-text">Edit</span> */}
+  </button>
+</div>
+
           
         </div>
         {isMessageOpen && (
@@ -234,7 +274,6 @@ const Sidebar = () => {
     <div className="chat-header">
       <img src={selectedChat.avatar} alt={selectedChat.name} className="chat-avatar" />
       <span className="chat-username">{selectedChat.name}</span>
-      {/* <button onClick={() => setSelectedChat(null)} className="close-chat">X</button> */}
           </div>
           
   </div>
@@ -247,10 +286,11 @@ const Sidebar = () => {
           </span>
           <span className="Project-text">Projects</span>
           <div className="projects-add-button">
-        <button>
-        <img src={plusIcon} alt="Add" />
-        </button>
-        </div>
+  <button onClick={handleClick}>
+    <img src={plusIcon} alt="Add" />
+  </button>
+</div>
+
         </div>
         {isOpen && (
           <ul className="projects-list">
@@ -267,10 +307,11 @@ const Sidebar = () => {
           </ul>
         )}
         <div className="more-projects">
-          <a href="#more-projects" onClick={loadMoreProjects}>
-            More Projects
-          </a>
-        </div>
+  <a href="#more-projects" onClick={loadMoreProjects}>
+    {!showAllProjects ? "More Projects" : "Less Projects"}
+  </a>
+</div>
+
       </div>
 
       {/* Teams Section */}
@@ -281,10 +322,12 @@ const Sidebar = () => {
           </span>
           <span className="Teams-text">Teams</span>
           <div className="teams-add-button">
-        <button>
-        <img src={plusIcon} alt="Add" />
-        </button>
-        </div>
+  <button onClick={handleClick}>
+    <img src={plusIcon} alt="Add" />
+  </button>
+</div>
+
+          
         </div>
         {isTeamsOpen && (
           <ul className="teams-list">
@@ -301,10 +344,11 @@ const Sidebar = () => {
           </ul>
         )}
         <div className="more-teams">
-          <a href="#more-teams" onClick={loadMoreTeams}>
-            More Teams
-          </a>
-        </div>
+  <a href="#more-teams" onClick={loadMoreTeams}>
+    {!showAllTeams ? "More Teams" : "Less Teams"}
+  </a>
+</div>
+
       </div>
 
       {/* Channels Section */}
@@ -314,11 +358,14 @@ const Sidebar = () => {
             {isChannelsOpen ? "▾" : "▸"}
           </span>
           <span>Channels</span>
+
           <div className="channels-add-button">
-        <button>
-        <img src={plusIcon} alt="Add" />
-        </button>
-        </div>
+  <button onClick={handleClick}>
+    <img src={plusIcon} alt="Add" />
+  </button>
+</div>
+
+          
         </div>
         {isChannelsOpen && (
           <ul className="channels-list">
@@ -337,17 +384,19 @@ const Sidebar = () => {
           </ul>
         )}
         <div className="more-channels">
-          <a href="#more-channels" onClick={loadMoreChannels}>
-            More Channels
-          </a>
-        </div>
+  <a href="#more-channels" onClick={loadMoreChannels}>
+    {!showAllChannels ? "More Channels" : "Less Channels"}
+  </a>
+</div>
+
       </div>
 
       {/* Footer (Company + Profile) */}
       <div className="sidebar-footer">
        <div className="footer-company">
   <img src={companyLogo} alt="Company Logo" className="company-logo" />
-</div>
+        </div>
+        
         <div className="footer-profile">
         <img src={profileavatar} alt="" className="profile-avatar" />
           
@@ -356,6 +405,7 @@ const Sidebar = () => {
             <img src={profilenameArrow} alt="" /></span>
         </div>
       </div>
+
     </div>
   );
 };

@@ -60,27 +60,57 @@
     width: 20px;
     height: 20px;
   }
-  .direct-message-add-button button {
+  /* .direct-message-add-button button {
     width: 30px;
     height: 30px;
     background: transparent ;
     border: none;
     cursor: pointer;
+  } */
+
+  .direct-message-add-button {
+    position: relative;
+    display: inline-block;
   }
+  
+  .direct-message-add-button button {
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .direct-message-add-button button::after {
+    content: "Edit";
+    position: absolute;
+    bottom: 120%; /* Position the tooltip above the button */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: black;
+    color: white;
+    padding: 5px 8px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .direct-message-add-button button:hover::after {
+    visibility: visible;
+    opacity: 1;
+  }
+  
   /* Users list */
   .direct-message-list {
     list-style-type: none;
     padding: 0;
     margin: 0;
   }
-  /* Avatar */
-  .user-avatar {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-right: 0.5rem;
-  }
+ 
   
   /* User name */
   .user-name {
@@ -90,17 +120,45 @@
   .chat-username{
     color: #000000;
   }
+   /* Avatar */
+   .user-avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    object-fit: cover;
+    /* margin-right: 0.5rem; */
+  }
   /* Status dot (green) */
    .status-dot {
     position: absolute;
     width: 8px;
     height: 8px;
-    background-color: #05e462; 
+    background-color: #12b30d ;
     border-radius: 50%;
-    margin-left: auto;
+    /* margin-left: auto; */
    
 }
+
+/* .user-avatar {
+  position: relative; 
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
   
+}
+
+.status-dot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: #12b30d;
+  border-radius: 50%;
+  right: 0; 
+  border: 2px solid white; 
+}
+
+   */
   /* More Conversation link */
   .more-conversation {
     margin-top: 0.5rem;
@@ -167,9 +225,9 @@
     margin-right: 10px;
   }
   
-  .chat-body {
+  /* .chat-body {
     margin-top: 10px;
-  }
+  } */
   
   .direct-message-list {
     list-style-type: none;
@@ -202,13 +260,13 @@
     flex: 1;
     font-size: 0.9rem;
   }
-  .status-dot {
+  /* .status-dot {
     width: 8px;
     height: 8px;
     background-color: #2ecc71; 
     border-radius: 50%;
     margin-left: auto;
-  }
+  } */
   .more-conversation {
     margin-top: 0.5rem;
   }
@@ -279,14 +337,42 @@
       width: 20px;
       height: 20px;
     }
+    .projects-add-button {
+      position: relative;
+      display: inline-block;
+    }
+    
     .projects-add-button button {
       width: 30px;
       height: 30px;
-      background: transparent ;
-      /* center/contain no-repeat; */
+      background: transparent;
       border: none;
       cursor: pointer;
+      position: relative;
     }
+    
+    .projects-add-button button::after {
+      content: "Edit";
+      position: absolute;
+      bottom: 120%; /* Position tooltip above button */
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: black;
+      color: white;
+      padding: 5px 8px;
+      border-radius: 5px;
+      font-size: 12px;
+      white-space: nowrap;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+    
+    .projects-add-button button:hover::after {
+      visibility: visible;
+      opacity: 1;
+    }
+    
   
   /* Teams Section */
 .teams-section {
@@ -345,13 +431,42 @@
     width: 20px;
     height: 20px;
   }
+  .teams-add-button {
+    position: relative;
+    display: inline-block;
+  }
+  
   .teams-add-button button {
     width: 30px;
     height: 30px;
-    background: transparent ;
-     border: none;
+    background: transparent;
+    border: none;
     cursor: pointer;
+    position: relative;
   }
+  
+  .teams-add-button button::after {
+    content: "Edit";
+    position: absolute;
+    bottom: 120%; /* Tooltip appears above */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: black;
+    color: white;
+    padding: 5px 8px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .teams-add-button button:hover::after {
+    visibility: visible;
+    opacity: 1;
+  }
+  
 
   /* 5) Channels Section */
 .channels-section {
@@ -397,14 +512,43 @@
     width: 20px;
     height: 20px;
   }
+
+  .channels-add-button {
+    position: relative;
+    display: inline-block;
+  }
+  
   .channels-add-button button {
     width: 30px;
     height: 30px;
-    background: transparent ;
-    /* center/contain no-repeat; */
+    background: transparent;
     border: none;
     cursor: pointer;
+    position: relative;
   }
+  
+  .channels-add-button button::after {
+    content: "Edit";
+    position: absolute;
+    bottom: 120%; /* Tooltip appears above */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: black;
+    color: white;
+    padding: 5px 8px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .channels-add-button button:hover::after {
+    visibility: visible;
+    opacity: 1;
+  }
+  
   .more-channels {
     margin-top: 0.5rem;
   }

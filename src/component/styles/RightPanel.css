@@ -20,6 +20,7 @@
   .right-panel h4 {
     margin-bottom: 30px;
     margin-top: 70px;
+    overflow-y: auto;
   }
   .priority-dot {
     display: inline-block;

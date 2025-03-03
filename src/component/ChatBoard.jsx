@@ -25,7 +25,7 @@ const ChatBoard = () => {
     e.preventDefault();
     if (currentMessage.trim() === "") return;
 
-    setMessages([...messages, { sender: "You", text: currentMessage }]);
+    setMessages([...messages, { sender: " ", text: currentMessage }]);
     setCurrentMessage("");
   };
 
@@ -34,21 +34,20 @@ const ChatBoard = () => {
     { id: 2, icon: textIcon, alt: "Text Format", action: () => alert("Text Format Clicked") },
     { id: 3, icon: emojiIcon, alt: "Emoji", action: () => alert("Emoji Clicked") },
     { id: 4, icon: mentionIcon, alt: "Mention", action: () => alert("@ Mention Clicked") },
-    { id: 5, type: "divider" }, // Divider
+    { id: 5, type: "divider" }, 
     { id: 6, icon: videoIcon, alt: "Video", action: () => alert("Video Clicked") },
     { id: 7, icon: micIcon, alt: "Microphone", action: () => alert("Microphone Clicked") },
-    { id: 8, type: "divider" }, // Divider
+    { id: 8, type: "divider" }, 
     { id: 9, icon: editIcon, alt: "Edit", action: () => alert("Edit Clicked") },
   ];
 
   return (
     <div className="chat-container">
-      {/* <div className="chat-header">Chat Header</div> */}
           <div className="chat-body">
           <chat-header/>
         {messages.map((msg, index) => (
-          <div key={index} className={`chat-message ${msg.sender === "You" ? "sent" : "received"}`}>
-            <strong>{msg.sender}:</strong> {msg.text}
+          <div key={index} className={`chat-message ${msg.sender === "  " ? "sent" : "received"}`}>
+            <strong>{msg.sender}</strong> {msg.text}
           </div>
         ))}
         <div ref={messagesEndRef} />
