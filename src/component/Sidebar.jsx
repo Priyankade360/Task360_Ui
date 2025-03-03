@@ -68,7 +68,8 @@ const initialChannels = [
   { name: "Wordpress-Development", locked: false },
 ];
 
-const Sidebar = () => {
+const Sidebar = ({ setActivePage }) => {
+  
     // Toggle states for each section
     const [isMessageOpen, setIsMessageOpen] = useState(true);
     const [isOpen, setIsOpen] = useState(true);
@@ -214,13 +215,11 @@ const handleClick = () => {
 };
 
   
-const openNewWindow = () => {
-  window.open("https://in.pinterest.com/modithakathari/doraemon-videos/", "width=600,height=400");
-};
+
   return (
     <div className="sidebar">
       {/* My Task */}
-      <div className="sidebar-mytask-box" onDoubleClick={openNewWindow} >
+      <div className="sidebar-mytask-box" onClick={() => setActivePage("task")} >
        <img src={vectorIcon} alt="" className="mytask-icon" />
         <span className="mytask-text">My Task</span>
       </div>

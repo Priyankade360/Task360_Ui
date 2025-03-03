@@ -1,0 +1,333 @@
+/* TaskPage.css */
+.task-page {
+    display: flex;
+  width: 100%;
+  height: 100vh;
+  background: white;
+  position: relative;
+    padding: 20px;
+    margin-left: 30px;
+    overflow-y: auto;
+}
+.task-page::-webkit-scrollbar {
+    display: none;
+}
+.task-container {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    width: 100%;
+    padding: 20px;
+    background: #f9f9f9;
+    margin-left: 2px;
+    border-right: 1px solid #ddd;
+    
+  }
+  .task-container::-webkit-scrollbar {
+    display: none;
+}
+/* Task Header with Back Arrow */
+.task-header {
+    position: absolute; 
+    top: 10px; 
+    left: 10px; 
+    display: flex; 
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    padding: 10px; 
+    width: 100%; 
+    background-color: white; 
+    z-index: 10; 
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+}
+
+/* .task-header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 109vw;
+    background-color: #ddd;
+} */
+
+/* Back Arrow Styling */
+.back-arrow {
+    font-size: 24px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+
+.task-icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* padding: 10px 10px; */
+    padding: 30px;
+    margin-top: 10px;
+}
+
+.left-icons {
+    display: flex;
+    gap: 10px;
+    margin-right: 30%;
+}
+
+.right-icons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 1px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 1px 15px;
+    border-radius: 5px;
+    min-width: 100px; /* Prevents elements from being too small */
+    max-width: 100px;
+    color:#000000;
+    position: relative;
+    font-size: 10px;
+}
+
+.search-icon-wrapper {
+    position: absolute;
+    left: 0rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 12px;
+    
+}
+
+.search-icon {
+    width: 16px;
+    height: 16px;
+    opacity: 0.6;
+   
+}
+
+.search-input {
+    width: 100%;
+    border: none;
+    outline: none;
+    left: 2px;
+    padding: 8px 1px 8px 14px; /* Adjust padding to avoid overlap with the icon */
+    background: transparent;
+    font-size: 14px;
+}
+
+.filter-box,
+.add-new {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border: 1px solid #ccc;
+    padding: 5px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    
+    cursor: pointer;
+    flex: 1; /* Ensures equal width dynamically */
+    min-width: 100px; /* Prevents elements from being too small */
+    max-width: 100px; /* Limits excessive width expansion */
+    justify-content: center;
+}
+
+/* Specific styling for .add-new */
+.add-new {
+    background-color: #6b7280;
+    color: #555;
+    border: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .right-icons {
+        flex-direction: column; /* Stack elements on smaller screens */
+        gap: 10px;
+    }
+
+    .search-box,
+    .filter-box,
+    .add-new {
+        width: 100%; /* Full width on smaller screens */
+        max-width: none;
+    }
+}
+
+
+.icon.active {
+    border-bottom: 2px solid black;
+}
+  
+  .task-section {
+    margin-bottom: 20px;
+    /* background: white; */
+    padding: 15px;
+    /* border-radius: 8px; */
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+  }
+  
+  .task-section h2 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+    background-color: #f4f8fd;
+  }
+  
+  .section-title {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.section-icon {
+    width: 12px; /* Adjust size as needed */
+    height: auto;
+    margin-right: 10px;
+}
+
+.rectangle{
+    margin-right: 10px;
+}
+
+.tooltip-container {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 80%;
+  }
+  
+  .tooltip-text {
+    visibility: hidden;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 8px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 125%; /* Position above the icon */
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .tooltip-container:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .plus{
+    margin-left: 82%; 
+    position: relative;
+    cursor: pointer;
+}
+.Progress-tooltip-container {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 73%;
+  }
+  .Progress-tooltip-container:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+  }
+.Progress-plus{
+    margin-left: 60%; 
+    position: relative;
+    cursor: pointer; 
+}
+.Review-tooltip-container{
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 75.5%;
+}
+.Review-tooltip-container:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+  }
+.Review-plus{
+    margin-left: 78%;
+   
+    position: relative;
+    cursor: pointer;
+}
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border: none;
+  }
+  
+  
+  th, td {
+    padding: 10px;
+    border: none;
+    text-align: left;
+    
+  }
+  tr{
+    border: none;
+  }
+  th {
+    border: none;
+  }
+  
+  .priority {
+    font-weight: bold;
+  }
+  
+  .priority.urgent {
+    color: red;
+  }
+  
+  .priority.high {
+    color: orange;
+  }
+  
+  .priority.medium {
+    color: gold;
+  }
+  
+  .priority.low {
+    color: gray;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    table {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+      border: none;
+    }
+  
+    th, td {
+      padding: 8px;
+      font-size: 14px;
+      border: none;
+    }
+  }
+  .task-preview-header{
+    display: flex;
+    align-items: left;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    padding: 30px;
+    overflow-y: auto;
+    width: 100%;
+   
+}
