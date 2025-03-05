@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import "./styles/Sidebar.css";
 
-
+import add1 from './Assets/add (1).svg';
 import vectorIcon from './Assets/Vector.svg';
 import vectorIcon2 from './Assets/Vector_unread.svg';
 import avijeet from './Assets/avijeet.png';
@@ -88,6 +88,9 @@ const Sidebar = ({ setActivePage }) => {
   const openChat = (user) => {
     setSelectedChat(user);
   };
+
+  const [isSearching, setIsSearching] = useState(false);
+const [searchQuery, setSearchQuery] = useState("");
   // A helper function to close all sections except the one specified
   const closeOtherSections = (section) => {
     if (section !== "messages") setIsMessageOpen(false);
@@ -211,10 +214,21 @@ const loadMoreChannels = (e) => {
   
 
 const handleClick = () => {
-  alert("Button clicked!");
+  alert("Search!");
 };
 
-  
+const handleSearchClick = () => {
+  setIsSearching(true);
+};
+
+
+const handleSearchComplete = (e) => {
+  if (e.key === "Enter") {
+    console.log("Searching for:", searchQuery);
+    setIsSearching(false); // Hide search input after search
+    setSearchQuery(""); // Clear input
+  }
+};
 
   return (
     <div className="sidebar">
@@ -232,20 +246,41 @@ const handleClick = () => {
 
       {/* Direct Message Section */}
       <div className="direct-message-section">
-        <div className="direct-message-header">
-          <span className="projects-arrow" onClick={handleToggleMessage}>
-            {isMessageOpen ? "▾" : "▸"}
-          </span>
-          <span className="direct-message-text">Direct Message</span>
-          <div className="direct-message-add-button">
-  <button onClick={handleClick} className="tooltip-button">
-    <img src={plusIcon} alt="Add" />
-    {/* <span className="tooltip-text">Edit</span> */}
-  </button>
+      <div className="direct-message-header">
+  {!isSearching ? (
+    <>
+      <span className="projects-arrow" onClick={handleToggleMessage}>
+        {isMessageOpen ? "▾" : "▸"}
+      </span>
+      <span className="direct-message-text">Direct Message</span>
+    </>
+  ) : (
+    <div className="search-box">
+      <input
+        type="text"
+        className="search-input"
+        placeholder="Search..."
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+        onKeyDown={handleSearchComplete}
+        autoFocus
+      />
+      <button onClick={handleSearchClick} className="search-button">
+        <img src={add1} alt="Search" />
+      </button>
+    </div>
+  )}
+
+  {!isSearching && (
+    <div className="direct-message-add-button">
+      <button onClick={handleSearchClick} className="tooltip-button">
+        <img src={add1} alt="Search" />
+      </button>
+    </div>
+  )}
 </div>
 
-          
-        </div>
+
         {isMessageOpen && (
           <ul className="direct-message-list">
             {directMessages.map((user, index) => (

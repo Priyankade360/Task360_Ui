@@ -6,7 +6,7 @@
   background: white;
   position: relative;
     padding: 20px;
-    margin-left: 30px;
+    margin-left: 60px;
     overflow-y: auto;
 }
 .task-page::-webkit-scrollbar {
@@ -14,13 +14,15 @@
 }
 .task-container {
     flex-grow: 1;
-    padding: 20px;
+    padding: 300px;
     overflow-y: auto;
     width: 100%;
-    padding: 20px;
-    background: #f9f9f9;
-    margin-left: 2px;
-    border-right: 1px solid #ddd;
+    /* max-width: 200%; */
+    /* min-height: 100vh; */
+    padding: 1px;
+    /* background: #f9f9f9; */
+    margin-left: 10px;
+    /* border-right: 1px solid #ddd; */
     
   }
   .task-container::-webkit-scrollbar {
@@ -65,8 +67,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 1px solid #ddd;
     /* padding: 10px 10px; */
-    padding: 30px;
+    /* padding: 30px; */
     margin-top: 10px;
 }
 
@@ -86,11 +89,11 @@
 .search-box {
     display: flex;
     align-items: center;
-    border: 1px solid #ccc;
+    border:none;
     padding: 1px 15px;
     border-radius: 5px;
     min-width: 100px; /* Prevents elements from being too small */
-    max-width: 100px;
+    /* max-width: 100px; */
     color:#000000;
     position: relative;
     font-size: 10px;
@@ -123,20 +126,22 @@
     font-size: 14px;
 }
 
+
 .filter-box,
 .add-new {
     display: flex;
     align-items: center;
     gap: 5px;
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
+    border: none;
     padding: 5px 12px;
-    border-radius: 5px;
+    /* border-radius: 5px; */
     font-size: 14px;
     
     cursor: pointer;
-    flex: 1; /* Ensures equal width dynamically */
-    min-width: 100px; /* Prevents elements from being too small */
-    max-width: 100px; /* Limits excessive width expansion */
+    flex: 1; 
+    /* min-width: 100px; 
+    max-width: 100px;  */
     justify-content: center;
 }
 
@@ -203,7 +208,7 @@
     position: relative;
     display: inline-block;
     cursor: pointer;
-    margin-left: 80%;
+    margin-left: 83%;
   }
   
   .tooltip-text {
@@ -229,7 +234,7 @@
   }
 
   .plus{
-    margin-left: 82%; 
+    margin-left: 83%; 
     position: relative;
     cursor: pointer;
 }
@@ -237,7 +242,7 @@
     position: relative;
     display: inline-block;
     cursor: pointer;
-    margin-left: 73%;
+    margin-left: 76%;
   }
   .Progress-tooltip-container:hover .tooltip-text {
     visibility: visible;
@@ -252,7 +257,7 @@
     position: relative;
     display: inline-block;
     cursor: pointer;
-    margin-left: 75.5%;
+    margin-left: 78%;
 }
 .Review-tooltip-container:hover .tooltip-text {
     visibility: visible;
@@ -290,19 +295,19 @@
   }
   
   .priority.urgent {
-    color: red;
+    color: #da1b06;
   }
   
   .priority.high {
-    color: orange;
+    color: #e67f08;
   }
   
   .priority.medium {
-    color: gold;
+    color: e4db61;
   }
   
   .priority.low {
-    color: gray;
+    color: #d4d3c6;
   }
   
   /* Responsive Design */

@@ -1,0 +1,31 @@
+.project-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+  }
+  
+  .title {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .description {
+    font-size: 1.2rem;
+    max-width: 600px;
+  }
+  
+  @media (max-width: 768px) {
+    .title {
+      font-size: 1.5rem;
+    }
+  
+    .description {
+      font-size: 1rem;
+    }
+  }
+  
