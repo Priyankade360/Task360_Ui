@@ -22,7 +22,7 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.5rem;
+    padding: 20px 10px;
     border-radius: 4px;
     cursor: pointer;
     
@@ -43,23 +43,49 @@
 .direct-message-section {
     margin-top: 1rem;
   }
-  
+.direct-message-text{
+  position: relative;
+  left: -27px;
+}
   /* Header: "Direct Message" + "+" button */
-  .direct-message-header {
+  .search-box {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-  }
-  .direct-message-text{
+    width: 100%;
+    background-color: #f0f0f0;
+    border-radius: 6px;
+    padding: 5px;
+    /* border: 1px solid #ccc; */
     position: relative;
-  left: -20px;
   }
-  .direct-message-add-button button img {
+  
+  .search-input {
+    flex: 1;
+    padding: 8px;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    background: transparent;
+  }
+  
+  .search-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    position: absolute;
+    right: 10px;
+  }
+  
+  .search-button img {
     width: 20px;
     height: 20px;
+    /* border: none; */
   }
+  
+  
+
+  
   /* .direct-message-add-button button {
     width: 30px;
     height: 30px;
@@ -83,7 +109,7 @@
   }
   
   .direct-message-add-button button::after {
-    content: "Edit";
+    content: "Search";
     position: absolute;
     bottom: 120%; /* Position the tooltip above the button */
     left: 50%;
@@ -107,7 +133,7 @@
   /* Users list */
   .direct-message-list {
     list-style-type: none;
-    padding: 0;
+    padding: 0px;
     margin: 0;
   }
  
@@ -122,8 +148,8 @@
   }
    /* Avatar */
    .user-avatar {
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
     border-radius: 50%;
     object-fit: cover;
     /* margin-right: 0.5rem; */
@@ -237,7 +263,7 @@
   .direct-message-item {
     display: flex;
     align-items: center;
-    padding: 0.4rem;
+    /* padding: 0.1rem; */
     border-radius: 4px;
     margin-bottom: 0.3rem;
     cursor: pointer;
@@ -250,8 +276,8 @@
     cursor: pointer; 
   }
   .user-avatar {
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
     border-radius: 50%;
     object-fit: cover;
     margin-right: 0.5rem;
@@ -295,7 +321,9 @@
  }
   .projects-arrow {
     margin-right: 1px; 
-    font-size: 0.9rem; 
+    font-size: 0.9rem;
+    background-color: #fff; 
+    padding: 1px 4px;
   }
   
   .projects-list {
@@ -352,7 +380,7 @@
     }
     
     .projects-add-button button::after {
-      content: "Edit";
+      content: "Add Project";
       position: absolute;
       bottom: 120%; /* Position tooltip above button */
       left: 50%;
@@ -446,7 +474,7 @@
   }
   
   .teams-add-button button::after {
-    content: "Edit";
+    content: "Add Teams";
     position: absolute;
     bottom: 120%; /* Tooltip appears above */
     left: 50%;
@@ -528,7 +556,7 @@
   }
   
   .channels-add-button button::after {
-    content: "Edit";
+    content: "Add Channels";
     position: absolute;
     bottom: 120%; /* Tooltip appears above */
     left: 50%;
