@@ -1,0 +1,552 @@
+.navbar {
+    width: 270px; 
+    background: #e9f0f9;
+    color: rgb(4, 4, 4);
+    padding: 15px; 
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    overflow-y: auto;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column; 
+  }
+  .navbar::-webkit-scrollbar {
+    display: none;
+  }
+  .navbar-component {
+    background: #e9f0f9;
+    color: rgb(4, 4, 4);
+    padding: 10px;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    overflow-y: auto; 
+    text-align: center;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+  }
+  .navbar-component::-webkit-scrollbar {
+    display: none;
+  }
+  .navbar-content {
+    flex: 1;
+    overflow-y: auto; 
+  }
+  .navbar-mytask-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;  
+    padding: 8px;
+    color: #555;
+    background-color: #ffffff;  
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  .mytask-text{
+    font-family: 'Lato', sans-serif;
+    color: #555;
+    font-weight: 600;
+  }
+  .mytask-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .unread-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;  
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative; 
+  }
+  
+  .unread-icon {
+    width: 18px;
+    height: 18px;
+  } 
+  .unread-text {
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+    color: #555;
+    font-weight: 600;
+  }
+
+  .direct-message-section {
+    display: flex;
+    flex-direction: column;
+    padding: 2px;
+    border-radius: 6px;
+  }
+  
+  .header-section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 1px;
+  }
+  
+  .text-section {
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+    color: #555;
+    font-weight: 600;
+    margin-right: 76px;
+  }
+  .down-arrow{
+    margin-right: 2px;
+    background-color: white;
+    padding: 2px 2px;
+    border-radius: 3px;
+    transition: transform 0.3s ease;
+  }
+  .search-box {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 400px; /* Ensures it adapts well */
+    background-color: #f0f0f0;
+    border-radius: 6px;
+    padding: 8px; /* Increased padding for better spacing */
+    position: relative;
+}
+
+.search-input {
+    flex: 1;
+    padding: 6px 6px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+.search-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    right: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px; 
+    height: 32px;
+}
+
+.search-button img {
+    width: 20px;
+    height: 20px;
+}
+.tooltip-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  
+}
+
+.tooltip-button img {
+  width: 20px;
+  height: 20px;
+}
+.direct-message-list {
+  list-style-type: none;
+  padding: 2px; 
+  margin: 0;
+  margin-left: 14px;
+}
+
+.direct-message-item {
+  display: flex;
+  align-items: center;
+  padding: 3px 8px; 
+  border-radius: 6px; 
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  position: relative;
+}
+
+.direct-message-item:hover {
+  background-color: rgb(255, 255, 255); 
+}
+.user-avatar {
+  width: 20px; 
+  height: 20px;
+  border-radius: 50%;
+  position: relative;
+}
+.status-dot {
+  width: 6px;
+  height: 6px;
+  background-color: #12b30d;
+  border: 2px solid white; 
+  border-radius: 50%;
+  position: absolute;
+  bottom: 4px;
+  left: 22px;
+}
+.more-section {
+  margin-top: 3px;
+  text-align: left; 
+  padding-left: 22px;
+}
+
+.more-section a {
+  font-size: 12px;
+  color: #555;
+  text-decoration: underline;
+  display: inline-block; 
+}
+  .projects-section{
+    display: flex;
+    flex-direction: column;
+    padding: 2px;
+    border-radius: 6px;
+  }
+  .projects-section .down-arrow {
+    margin-right: 2px;
+    background-color: white;
+    padding: 2px;
+    border-radius: 3px;
+    transition: transform 0.3s ease;
+}
+.projects-list {
+  list-style-type: none;
+  padding: 2px;
+  margin: 0;
+  margin-left: 14px;
+}
+.project-item {
+  display: flex;
+  align-items: center;
+  padding: 1px 10px;
+  border-radius: 4px;
+  margin-bottom: 0.3rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  position: relative;
+}
+.project-item:hover {
+  background-color: #ffffff;
+}
+.profile-logo {
+  width: 20px; 
+  height: 20px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+.user-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+}
+.add-button{
+  position: relative;
+  display: inline-block;
+}
+.projects-section .text-section{
+  margin-right: 52%;
+}
+.add-button button img {
+  width: 16px;
+  height: 16px;
+}
+.add-button button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: relative;
+}
+.add-button button::after {
+  content: "Add";
+  position: absolute;
+  bottom: 120%; /* Position tooltip above button */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: black;
+  color: white;
+  padding: 5px 8px;
+  border-radius: 5px;
+  font-size: 12px;
+  white-space: nowrap;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+.add-button button:hover::after {
+  visibility: visible;
+  opacity: 1;
+}
+
+.teams-section{
+    display: flex;
+    flex-direction: column;
+    padding: 2px;
+    border-radius: 6px;
+  }
+.teams-section .text-section {
+    margin-right: 58%;
+  }
+  .teams-list {
+    list-style-type: none;
+    padding: 2px;
+    margin: 0;
+    margin-left: 14px;
+}
+.team-item {
+    display: flex;
+    align-items: center;
+    padding: 1px 10px;
+    border-radius: 4px;
+    margin-bottom: 0.3rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    position: relative;
+}
+.team-item:hover {
+    background-color: #ffffff;
+}
+.team-icon {
+    width: 18px; 
+    height: 18px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+.team-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #555;
+}
+.channels-section{
+  display: flex;
+    flex-direction: column;
+    padding: 2px;
+    border-radius: 6px;
+}
+.channels-section .text-section {
+    margin-right: 52%;
+}
+.channels-list {
+  list-style-type: none;
+  padding: 2px;
+  margin: 0;
+  margin-left: 14px;
+}
+.channel-item {
+  display: flex;
+  align-items: center;
+  padding: 1px 10px;
+  border-radius: 4px;
+  margin-bottom: 0.3rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  position: relative;
+}
+.channel-item:hover {
+  background-color: #ffffff;
+}
+.channel-icon {
+  width: 16px; 
+  height: 16px;
+  margin-right: 8px;
+}
+.channel-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+}
+.navbar-footer {
+    padding: 8px;
+    background: #e9f0f9;
+    position: sticky;
+    bottom: 0;
+    margin-top: auto;
+    border-top: 1px solid #82b6ea; 
+  }
+.footer-company {
+  display: flex;
+  align-items: center;
+}
+.company-logo {
+  height: 12px;
+}
+.footer-profile {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.profile-avatar {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+.profile-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+}
+
+.profilename-arrow img {
+  width: 15px;
+  height: 15px;
+  position: relative;
+  display: inline-block;
+  margin-left: 115px;
+}
+/* Dropdown Menu - Appear Above Footer */
+.profile-dropdown {
+  position: absolute;
+  bottom: 40px; 
+  right: 10;
+  width: 230px;
+  height: 300px;
+  background: #ffffff;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  z-index: 1000; 
+  transition: all 0.3s ease;
+}
+
+/* Arrow Indicator */
+.profile-dropdown::before { 
+  position: absolute;
+  top: 100%; 
+  right: 15px;
+  border-width: 8px;
+  border-style: solid;
+  border-color: #ffffff transparent transparent transparent;
+}
+
+/* Profile Header */
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 10px; 
+  padding: 10px;
+}
+
+/* Profile Avatar */
+.dropdown-avatar {
+  width: 50px; 
+  height: 50px;
+  object-fit: cover; 
+  border: 2px solid #fff; 
+}
+/* Profile Info */
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+/* Profile Name */
+.profile-name {
+  font-weight: bold;
+  font-size: 14px;
+  color: #464b50;
+}
+/* Profile Status */
+.profile-status {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #6c757d; 
+}
+
+/* Status Dot */
+.active-status-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #28a745; 
+  border-radius: 50%;
+  margin-right: 5px; 
+}
+/* Profile Options */
+.profile-options {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  color: #333; /* Dark gray for text */
+}
+
+.profile-options li {
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.profile-options li:hover {
+  background: rgba(0, 0, 0, 0.05); /* Subtle hover effect */
+}
+.set-yourself{
+  font-weight: 400;
+  font-size: 16px;
+}
+/* Away Text */
+.away-text {
+  font-weight: bold;
+  color: #222; 
+  font-size: 16px;
+}
+
+/* Toggle Option */
+.toggle-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+/* Toggle Switch */
+.toggle-switch {
+  appearance: none;
+  width: 32px;
+  height: 16px;
+  background: #e9f0f9; 
+  border-radius: 16px;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+/* Toggle Switch Circle */
+.toggle-switch::before {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: white;
+  border-radius: 50%;
+  top: 50%;
+  left: 3px;
+  transform: translateY(-50%);
+  transition: left 0.3s ease;
+}
+
+/* Checked State */
+.toggle-switch:checked {
+  background: #6363f2; 
+}
+
+.toggle-switch:checked::before {
+  left: 17px;
+}
+
+

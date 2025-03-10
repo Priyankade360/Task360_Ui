@@ -4,7 +4,7 @@ import "./styles/Task.css";
 import searchIcon from "./Assets/search.svg";
 import filterIcon from "./Assets/filter.svg";
 import checkIcon from "./Assets/teenyicons_tick-circle-solid.svg";
-import cross_icon from "./Assets/cross.svg";
+import cross_icon from "./Assets/cross_icon.svg";
 import assignedIcon_P from "./Assets/P_icon.svg";
 import assignedIcon_I from "./Assets/I_icon.svg";
 import projectIcon1 from "./Assets/Starbucks.png";
@@ -296,7 +296,8 @@ const TaskPage = () => {
 >
   {isComplete ? "✔️ Complete" : "✔️ Mark Complete"}
 </button>
-    <button onClick={closePanel} className="close-btn">✖</button>
+          <button onClick={closePanel} className="close-btn"> <img src={cross_icon} alt=" " /></button>
+         
   </div>
   {selectedTask && (
   <>
@@ -305,9 +306,12 @@ const TaskPage = () => {
     {/* ✅ Properly show Assignee value */}
     {/* ✅ Assignee Section */}
 <div className="assignee-container">
-  <span className="assignee-label">Assignee :</span>
+  <span className="assignee-label">Assignee </span>
   <div className="assignee-box">
-    <div className="assignee-info">
+                <div className="assignee-info">
+                <button className="clear-assignee" onClick={() => handleRemoveAssignee()}>
+        ✖
+      </button>
       <img src={userIcon} alt="User" className="assignee-avatar" />
       <span className="assignee-name">{selectedTask.Assignee || "Not Assigned"}</span>
     </div>
@@ -316,7 +320,7 @@ const TaskPage = () => {
         ✖
       </button>
     )}
-                <span className="assignee-status">Recently assigned </span>
+                <span className="assignee-status">Collaborators </span>
                 <img src={ArrowDownIcon} alt="Dropdown" className="dropdown-icon" />
   </div>
   
@@ -325,7 +329,7 @@ const TaskPage = () => {
     
     {/* <p><strong>Due Date:</strong> {selectedTask.Due_Date}</p> */}
     <div className="due-date-container">
-  <span className="due-date-label">Due date :</span>
+  <span className="due-date-label">Due date </span>
   <div className="due-date-box">
     <img src={calendarIcon} alt="Calendar" className="calendar-icon" />
     <span className="due-date-value">{selectedTask.Due_Date || "Not Set"}</span>
@@ -335,11 +339,11 @@ const TaskPage = () => {
   </div>
             </div>
             
-    <p><strong>Projects :</strong> <span className="project-section">{selectedTask.Project}</span></p>
+    <p><strong>Projects </strong> <span className="project-section">{selectedTask.Project}</span></p>
 
-    <p><strong>Dependencies :</strong> {selectedTask.Dependencies || "None"}</p>
+    <p><strong>Dependencies </strong> {selectedTask.Dependencies || "None"}</p>
 
-    <p><strong>Description :</strong> {selectedTask.Description || "What is this task about?"}</p>
+    <p><strong>Description </strong> {selectedTask.Description || "What is this task about?"}</p>
   </>
 )}
       {/* Description Section */}

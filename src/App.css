@@ -1,12 +1,16 @@
 .app-container {
-  display: flex;  /* Align all divs in a row */
-  height: 100vh;
-  overflow: hidden;
+  display: flex; /* Align all child divs in a row */
+  width: 100vw;  /* Full viewport width */
+  height: 100vh; /* Full viewport height */
+  min-height: 100vh; /* Ensures it covers the full screen */
+  overflow: hidden; /* Prevents scrolling */
+  flex-grow: 1; /* Ensures content expands dynamically */
 }
+
 
 /* Sidebar - Fixed Left */
 .sidebar {
-  width: 250px;
+  width: 270px;
   background: #e9f0f9;
   color: rgb(4, 4, 4);
   padding: 20px;
@@ -15,16 +19,17 @@
   top: 0;
   bottom: 0;
   overflow-y: auto; 
+  border-radius: 8px;
 }
 
 /* Main Chat Section */
-.main-content {
+/* .main-content {
   flex: 1; 
   margin-left: 220px; 
-  /* margin-right: 250px;  */
+ 
   display: flex;
   flex-direction: column;
-}
+} */
 
 /* Right Panel - Fixed Right */
 /* .right-panel {
@@ -39,17 +44,16 @@
   z-index: -1;
 } */
 
-.right-panel {
+/* .right-panel {
   height: 100vh;
   width: 500px;
   background: #f4f4f4;
-  /* margin-top: 70px; */
+  
   padding: 20px;
   position: fixed;
   border-radius: 4px;
   right: 0;
   top: 0;
   bottom: 0;
-  /* overflow-y: auto;
-  z-index: 1000; */
-}
+ 
+} */

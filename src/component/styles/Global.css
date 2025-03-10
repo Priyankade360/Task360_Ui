@@ -1,0 +1,16 @@
+.search-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 1px;
+  }
+  .search-button img {
+    width: 18px;
+    height: 18px;
+  }
+  .down-arrow {
+    width: 5%;  /* Responsive: adjusts based on screen size */
+    max-width: 16px;  /* Prevents icon from getting too large */
+    min-width: 14px;  /* Ensures visibility on small screens */
+    /* height: auto; */
+  }

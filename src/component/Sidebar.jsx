@@ -95,14 +95,13 @@ const Sidebar = ({ setActivePage }) => {
 
   const [isSearching, setIsSearching] = useState(false);
 const [searchQuery, setSearchQuery] = useState("");
-  // A helper function to close all sections except the one specified
-  const closeOtherSections = (section) => {
+    const closeOtherSections = (section) => {
     if (section !== "messages") {
       setIsMessageOpen(false);
     }
   };
 
-  // Toggle functions for each section that close the other sections when opening one
+  
   const handleToggleMessage = () => {
     if (!isMessageOpen) {
       closeOtherSections("messages");
